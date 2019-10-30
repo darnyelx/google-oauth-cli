@@ -1,0 +1,17 @@
+{
+  "name": "google-oauth-cli",
+  "version": "1.0.0",
+  "description": "google cli for oauth",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": "./index.js",
+  "author": "Chiemeke Ifeanyi",
+  "license": "ISC",
+  "dependencies": {
+    "google-auth-library": "^5.5.1",
+    "googleapis": "^44.0.0",
+    "yargs": "^14.2.0"
+  }
+}
