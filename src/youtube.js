@@ -1,4 +1,5 @@
 let fs          = require('fs');
+let os          = require('os');
 let readline    = require('readline');
 let path        = require('path');
 let {google}    = require('googleapis');
@@ -35,7 +36,6 @@ let SCOPES,
 
         });
 
-        // Check if we have previously stored a token.
 
 
     }
@@ -74,7 +74,7 @@ let SCOPES,
 
     function storeToken(token) {
     try {
-        fs.mkdirSync(TOKEN_DIR);
+        fs.mkdirSync(TOKEN_DIR,{ recursive: true });
     } catch (err) {
         if (err.code != 'EEXIST') {
             throw err;
@@ -98,9 +98,9 @@ module.exports = class Youtube {
      init () {
 
           SCOPES      = process.env.YOUTUBE_SCOPE.split(',');
-          TOKEN_DIR   = '/etc/google-credentials/';
-          TOKEN_FILE  = process.env.TOKEN_NAME;
-          TOKEN_PATH  = path.join((process.env.TOKEN_PATH ||TOKEN_DIR) , (TOKEN_FILE||('youtube-nodejs-'+Date.now())+'.json'));
+          TOKEN_DIR   = process.env.TOKEN_PATH||(path.join(os.tmpdir(),'google-credentials'));
+          TOKEN_FILE  = (process.env.TOKEN_FILE||('google-auth-token-'+Date.now())+'.json');
+          TOKEN_PATH  = path.join(TOKEN_DIR , TOKEN_FILE);
           console.log(TOKEN_PATH,'token path');
           clientSecret = process.env.CLIENT_SECRET;
 
