@@ -99,7 +99,7 @@ module.exports = class Youtube {
 
           SCOPES      = process.env.YOUTUBE_SCOPE.split(',');
           TOKEN_DIR   = process.env.TOKEN_PATH||(path.join(os.tmpdir(),'google-credentials'));
-          TOKEN_FILE  = (process.env.TOKEN_FILE||('google-auth-token-'+Date.now())+'.json');
+          TOKEN_FILE  = (process.env.TOKEN_FILE||('google-auth-token-'+Date.now()))+'.json';
           TOKEN_PATH  = path.join(TOKEN_DIR , TOKEN_FILE);
           console.log(TOKEN_PATH,'token path');
           clientSecret = process.env.CLIENT_SECRET;

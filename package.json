@@ -1,12 +1,12 @@
 {
-  "name": "darnyelx@google-oauth-cli",
-  "version": "1.0.1",
+  "name": "google-oauth-cli",
+  "version": "1.0.3",
   "description": "google cli for oauth",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": "git://github.com/darnyelx/google-oauth-cli-v3",
+  "repository": "git://github.com/darnyelx/google-oauth-cli",
   "bin": "./index.js",
   "author": "Chiemeke Ifeanyi",
   "license": "ISC",
